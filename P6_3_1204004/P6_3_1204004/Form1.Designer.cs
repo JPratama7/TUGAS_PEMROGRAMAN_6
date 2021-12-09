@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.hhh = new System.Windows.Forms.Label();
             this.nama = new System.Windows.Forms.Label();
@@ -36,8 +37,6 @@
             this.alamt = new System.Windows.Forms.Label();
             this.nt = new System.Windows.Forms.Label();
             this.ps = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.tbnama = new System.Windows.Forms.TextBox();
             this.tanggal = new System.Windows.Forms.MonthCalendar();
             this.lk = new System.Windows.Forms.RadioButton();
             this.pr = new System.Windows.Forms.RadioButton();
@@ -45,8 +44,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.epWarn = new System.Windows.Forms.ErrorProvider(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tbnama = new P6_3_1204004.CharTB();
             this.tbtelp = new P6_3_1204004.NumericTB();
             this.tbnpm = new P6_3_1204004.NumericTB();
+            ((System.ComponentModel.ISupportInitialize)(this.epWarn)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -122,13 +125,6 @@
             this.ps.TabIndex = 7;
             this.ps.Text = "Program Studi";
             // 
-            // tbnama
-            // 
-            this.tbnama.Location = new System.Drawing.Point(182, 164);
-            this.tbnama.Name = "tbnama";
-            this.tbnama.Size = new System.Drawing.Size(188, 20);
-            this.tbnama.TabIndex = 9;
-            // 
             // tanggal
             // 
             this.tanggal.Location = new System.Drawing.Point(182, 214);
@@ -164,6 +160,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(182, 55);
             this.textBox1.TabIndex = 14;
+            this.textBox1.Tag = "";
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // comboBox1
             // 
@@ -193,25 +191,46 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // epWarn
+            // 
+            this.epWarn.ContainerControl = this;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // tbnama
+            // 
+            this.tbnama.Location = new System.Drawing.Point(182, 168);
+            this.tbnama.Name = "tbnama";
+            this.tbnama.Size = new System.Drawing.Size(227, 20);
+            this.tbnama.TabIndex = 19;
+            this.tbnama.Leave += new System.EventHandler(this.tbnama_Leave);
+            // 
             // tbtelp
             // 
             this.tbtelp.Location = new System.Drawing.Point(182, 526);
             this.tbtelp.Name = "tbtelp";
             this.tbtelp.Size = new System.Drawing.Size(149, 20);
             this.tbtelp.TabIndex = 15;
+            this.tbtelp.Leave += new System.EventHandler(this.tbtelp_Leave);
             // 
             // tbnpm
             // 
             this.tbnpm.Location = new System.Drawing.Point(182, 130);
+            this.tbnpm.MaxLength = 7;
             this.tbnpm.Name = "tbnpm";
             this.tbnpm.Size = new System.Drawing.Size(100, 20);
             this.tbnpm.TabIndex = 8;
+            this.tbnpm.Leave += new System.EventHandler(this.tbnpm_Leave);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 717);
+            this.Controls.Add(this.tbnama);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
@@ -220,7 +239,6 @@
             this.Controls.Add(this.pr);
             this.Controls.Add(this.lk);
             this.Controls.Add(this.tanggal);
-            this.Controls.Add(this.tbnama);
             this.Controls.Add(this.tbnpm);
             this.Controls.Add(this.ps);
             this.Controls.Add(this.nt);
@@ -232,6 +250,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.epWarn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,9 +266,7 @@
         private System.Windows.Forms.Label alamt;
         private System.Windows.Forms.Label nt;
         private System.Windows.Forms.Label ps;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private NumericTB tbnpm;
-        private System.Windows.Forms.TextBox tbnama;
         private System.Windows.Forms.MonthCalendar tanggal;
         private System.Windows.Forms.RadioButton lk;
         private System.Windows.Forms.RadioButton pr;
@@ -258,6 +275,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ErrorProvider epWarn;
+        private CharTB tbnama;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

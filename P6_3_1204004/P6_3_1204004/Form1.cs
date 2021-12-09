@@ -68,8 +68,10 @@ namespace P6_3_1204004
             string jk = "";
             if (pr.Checked) { jk = pr.Text; } else if (lk.Checked) { jk = lk.Text; }
             string sDate = tanggal.SelectionStart.ToString("yyyy\\/MM\\/dd");
-            string cmdsave = "insert into MSMHS values('" + tbnpm.Text + "','" + tbnama.Text + "','" + sDate + "','" + jk + "','" + alamt.Text + "','" + tbtelp.Text + "','"+ comboBox1.SelectedValue + "')";
+            string alamat = textBox1.Text;
+            string cmdsave = "insert into MSMHS values('" + tbnpm.Text + "','" + tbnama.Text + "','" + sDate + "','" + jk + "','" + alamat + "','" + tbtelp.Text + "','" + comboBox1.SelectedValue + "')";
             InsertDB(cmdsave);
+
 
         }
 
@@ -83,6 +85,64 @@ namespace P6_3_1204004
             pr.Checked = false;
             lk.Checked = false;
 
+        }
+
+        private void seterror(Control control)
+        {
+            epWarn.SetError(control, "Harus diisi");
+        }
+
+        private void remerror()
+        {
+            epWarn.Clear();
+        }
+
+        private void tbnpm_Leave(object sender, EventArgs e)
+        {
+            if(tbnpm.Text == "")
+            {
+                seterror(tbnpm);
+            }
+            else
+            {
+                remerror();
+            }
+        }
+
+        private void tbnama_Leave(object sender, EventArgs e)
+        {
+            if (tbnama.Text == "")
+            {
+                seterror(tbnama);
+            }
+            else
+            {
+                remerror();
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                seterror(textBox1);
+            }
+            else
+            {
+                remerror();
+            }
+        }
+
+        private void tbtelp_Leave(object sender, EventArgs e)
+        {
+            if (tbtelp.Text == "")
+            {
+                seterror(tbtelp);
+            }
+            else
+            {
+                remerror();
+            }
         }
     }
 }
